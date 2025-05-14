@@ -21,11 +21,16 @@ async function includeHTML(elementId, path) {
         element.innerHTML = html;
 
         // Set active class for current page
-        const currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        let currentPage = window.location.pathname.split('/').pop() || 'index.html';
+        currentPage = currentPage.split('?')[0].split('#')[0];
+        if (currentPage === '') currentPage = 'index.html';
         const navLinks = element.querySelectorAll('.nav-links a');
         navLinks.forEach(link => {
-            if (link.getAttribute('href') === currentPage) {
+            let linkHref = link.getAttribute('href').split('?')[0].split('#')[0];
+            if ((currentPage === 'index.html' && (linkHref === 'index.html' || linkHref === './' || linkHref === '')) || linkHref === currentPage) {
                 link.classList.add('active');
+            } else {
+                link.classList.remove('active');
             }
         });
     } catch (error) {
@@ -45,6 +50,7 @@ async function includeHTML(elementId, path) {
                                 <li><a href="services.html">Services</a></li>
                                 <li><a href="about.html">About</a></li>
                                 <li><a href="history.html">History</a></li>
+                                <li><a href="affiliations.html">Affiliations</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                             <div class="hamburger">
