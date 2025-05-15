@@ -62,9 +62,21 @@ document.addEventListener('DOMContentLoaded', function() {
             // Create FormData object
             const formData = new FormData(this);
             
-            // Add recipient email
-            formData.append('recipient', 'ron23comia@gmail.com');
-            
+            // Get recipient selection
+            const recipientValue = document.getElementById('recipientEmail').value;
+            let recipients = [];
+            if (recipientValue === 'all') {
+                recipients = [
+                    'info@foresthillsgarden.com',
+                    'support@foresthillsgarden.com',
+                    'sales@foresthillsgarden.com'
+                ];
+            } else {
+                recipients = [recipientValue];
+            }
+            formData.delete('recipient'); // Remove if exists
+            recipients.forEach(email => formData.append('recipient', email));
+
             // Send the form data
             const response = await fetch('/api/contact', {
                 method: 'POST',

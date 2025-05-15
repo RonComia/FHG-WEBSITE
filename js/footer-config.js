@@ -1,8 +1,12 @@
 // Footer configuration
 const footerConfig = {
     contact: {
-        email: 'info@foresthillsgarden.com',
-        phone: '(555) 123-4567'
+        emails: [
+            'info@foresthillsgarden.com',
+            'support@foresthillsgarden.com',
+            'sales@foresthillsgarden.com'
+        ],
+        phone: '(043) 741 0603'
     },
     socialMedia: {
         facebook: {
@@ -21,7 +25,7 @@ const footerConfig = {
             enabled: true
         }
     },
-    copyright: '© 2024 Forest Hills Garden. All rights reserved.'
+    copyright: '© 2025 Forest Hills Garden. All rights reserved.'
 };
 
 // Function to generate footer HTML
@@ -39,7 +43,9 @@ function generateFooter() {
             <div class="footer-content">
                 <div class="footer-section">
                     <h3>Contact Us</h3>
-                    <p>Email: ${footerConfig.contact.email}</p>
+                    <div class="footer-emails">
+                        ${footerConfig.contact.emails.map(email => `<p>Email: <a href="mailto:${email}">${email}</a></p>`).join('')}
+                    </div>
                     <p>Phone: ${footerConfig.contact.phone}</p>
                 </div>
                 <div class="footer-section">

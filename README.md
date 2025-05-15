@@ -8,10 +8,13 @@ A professional website for Forest Hills Garden, a tree care and landscaping busi
 - Modern and clean user interface
 - Separate pages for Services, About, History, and Contact
 - Contact form for customer inquiries
+- Multiple email addresses in the footer, with selectable recipient in the contact form
 - Interactive timeline showing company history
 - Detailed service descriptions
-- Team member profiles
+- Team member profiles with real photos
 - Social media integration
+- Google Maps embed showing the business location in the Philippines
+- Footer email links styled in white for better visibility
 
 ## Setup Instructions
 
@@ -23,6 +26,9 @@ A professional website for Forest Hills Garden, a tree care and landscaping busi
    - `about-bg.jpg` - An image representing the company for the about page header
    - `history-bg.jpg` - An image representing company history for the history page header
    - `contact-bg.jpg` - An image representing contact for the contact page header
+   - `Marife B. Luna.jpg` - Team member photo for About page
+   - `Guiller Armand B. Luna.jpg` - Team member photo for About page
+   - `Elijah Marc B. Luna.png` - Team member photo for About page
 
 4. Open `index.html` in your web browser to view the website
 
@@ -38,13 +44,19 @@ forest-hills-garden/
 ├── css/
 │   └── styles.css
 ├── js/
-│   └── main.js
+│   ├── main.js
+│   ├── footer-config.js
+│   ├── components.js
+│   └── contact.js
 └── images/
     ├── hero-bg.jpg
     ├── services-bg.jpg
     ├── about-bg.jpg
     ├── history-bg.jpg
-    └── contact-bg.jpg
+    ├── contact-bg.jpg
+    ├── Marife B. Luna.jpg
+    ├── Guiller Armand B. Luna.jpg
+    └── Elijah Marc B. Luna.png
 ```
 
 ## Customization
@@ -54,6 +66,7 @@ forest-hills-garden/
 - Add your own images to the `images` directory
 - Update contact information and social media links in the footer
 - Customize the services offered in the services page
+- Update the list of footer emails and team member photos as needed
 
 ## Browser Support
 
