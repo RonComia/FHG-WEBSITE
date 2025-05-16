@@ -2,9 +2,9 @@
 const footerConfig = {
     contact: {
         emails: [
-            'info@foresthillsgarden.com',
-            'support@foresthillsgarden.com',
-            'sales@foresthillsgarden.com'
+            'iamfeluna@yahoo.com',
+            'ga_luna35@yahoo.com',
+            'support@foresthillsgarden.com'
         ],
         phone: '(043) 741 0603'
     },

@@ -1,8 +1,9 @@
 // Wait for DOM content to be loaded
+let hamburger, navLinks;
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile navigation toggle
-    const hamburger = document.querySelector('.hamburger');
-    const navLinks = document.querySelector('.nav-links');
+    hamburger = document.querySelector('.hamburger');
+    navLinks = document.querySelector('.nav-links');
 
     if (hamburger && navLinks) {
         hamburger.addEventListener('click', () => {
@@ -37,10 +38,15 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Close mobile menu when clicking outside
+// Only run if hamburger and navLinks are defined
+// Use event delegation to avoid errors
+
 document.addEventListener('click', (e) => {
-    if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-        navLinks.classList.remove('active');
-        hamburger.classList.remove('active');
+    if (typeof hamburger !== 'undefined' && typeof navLinks !== 'undefined' && hamburger && navLinks) {
+        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
+            navLinks.classList.remove('active');
+            hamburger.classList.remove('active');
+        }
     }
 });
 
