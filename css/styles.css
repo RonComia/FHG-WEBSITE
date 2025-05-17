@@ -82,6 +82,7 @@ body {
     text-decoration: none;
     color: #fff;
     font-weight: 500;
+    font-size: 1.2rem;
     transition: var(--transition);
     position: relative;
     padding: 0.5rem 0;
@@ -114,6 +115,7 @@ body {
     border-radius: 6px;
     padding: 0.5rem 1rem;
     font-weight: 700;
+    font-size: 1.2rem;
     box-shadow: 0 2px 8px rgba(44,85,48,0.10);
     transition: background 0.2s, color 0.2s;
 }
@@ -181,6 +183,15 @@ body {
 
 .hamburger-menu li a:hover {
     color: var(--accent-color);
+}
+
+.hamburger-menu li a.active {
+    color: #fff !important;
+    background: var(--primary-light);
+    border-radius: 6px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    box-shadow: 0 2px 8px rgba(44,85,48,0.10);
 }
 
 /* Modern Hero Section */
@@ -384,19 +395,25 @@ footer {
 /* Services Detailed */
 .services-detailed {
     padding: 5rem 5%;
-    max-width: 1200px;
+    max-width: 1400px;
     margin: 0 auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
 }
 
 .service-item {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    gap: 2rem;
-    margin-bottom: 4rem;
+    display: flex;
+    flex-direction: column;
     background-color: #fff;
     border-radius: 10px;
     box-shadow: 0 3px 10px rgba(0,0,0,0.1);
     overflow: hidden;
+    transition: transform 0.3s ease;
+}
+
+.service-item:hover {
+    transform: translateY(-5px);
 }
 
 .service-image {
@@ -405,25 +422,83 @@ footer {
     align-items: center;
     justify-content: center;
     padding: 2rem;
+    min-height: 200px;
+    cursor: pointer;
+    position: relative;
+    overflow: hidden;
+}
+
+.service-slideshow {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.service-slideshow img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+.service-slideshow img.active {
+    opacity: 1;
+}
+
+.service-image::before {
+    content: '\f03e';
+    font-family: 'Font Awesome 5 Free';
+    font-weight: 900;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    color: rgba(255, 255, 255, 0.8);
+    z-index: 2;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.service-image:hover::before {
+    opacity: 1;
 }
 
 .service-image i {
     font-size: 4rem;
     color: #fff;
+    position: relative;
+    z-index: 1;
 }
 
 .service-content {
     padding: 2rem;
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
 }
 
 .service-content h2 {
     color: #2c5530;
     margin-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.service-content p {
+    margin-bottom: 1rem;
+    color: var(--text-light);
 }
 
 .service-content ul {
     list-style: none;
     margin: 1rem 0;
+    flex-grow: 1;
 }
 
 .service-content ul li {
@@ -440,7 +515,8 @@ footer {
 }
 
 .service-content .cta-button {
-    margin-top: 1rem;
+    margin-top: auto;
+    text-align: center;
 }
 
 /* About Page Styles */
@@ -713,15 +789,18 @@ footer {
 
 .contact-grid {
     display: grid;
-    grid-template-columns: 1fr 1.5fr;
+    grid-template-columns: 0.8fr 1.2fr;
     gap: 4rem;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .contact-info {
     background-color: var(--white);
-    padding: 3rem;
+    padding: 2.5rem;
     border-radius: var(--border-radius);
     box-shadow: var(--shadow-md);
+    height: fit-content;
 }
 
 .contact-info h2 {
@@ -1086,6 +1165,9 @@ footer {
     width: 100%;
     max-width: 1200px;
     margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
 }
 
 .map-frame {
@@ -1123,6 +1205,36 @@ footer {
 
 .waze-button i {
     font-size: 1.5rem;
+    margin-right: 8px;
+}
+
+.address-display {
+    text-align: center;
+    padding: 2rem;
+    background-color: var(--white);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow-sm);
+    margin-bottom: 2rem;
+}
+
+.address-display h2 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+    font-size: 1.8rem;
+}
+
+.address-display p {
+    color: var(--text-dark);
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.address-display i {
+    color: var(--primary-color);
+    font-size: 1.4rem;
 }
 
 /* Add smooth scrolling */
@@ -1166,4 +1278,127 @@ html {
 .timeline-item.left .timeline-card {
     margin-left: 0.5rem;
     margin-right: 0;
+}
+
+/* Responsive adjustments for services */
+@media (max-width: 1200px) {
+    .services-detailed {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .services-detailed {
+        grid-template-columns: 1fr;
+    }
+    
+    .service-item {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+}
+
+/* Photo Gallery Modal */
+.gallery-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.9);
+    z-index: 1000;
+    padding: 2rem;
+}
+
+.gallery-modal.active {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.gallery-content {
+    position: relative;
+    max-width: 90%;
+    max-height: 90vh;
+    margin: auto;
+}
+
+.gallery-content img {
+    max-width: 100%;
+    max-height: 80vh;
+    object-fit: contain;
+}
+
+.gallery-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+    padding: 0 1rem;
+}
+
+.gallery-nav button {
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    padding: 1rem;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.gallery-nav button:hover {
+    background: rgba(255, 255, 255, 0.3);
+}
+
+.gallery-close {
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 0.5rem;
+}
+
+.gallery-thumbnails {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+    overflow-x: auto;
+    padding: 0.5rem;
+}
+
+.gallery-thumbnail {
+    width: 80px;
+    height: 60px;
+    object-fit: cover;
+    cursor: pointer;
+    border: 2px solid transparent;
+    transition: border-color 0.3s ease;
+}
+
+.gallery-thumbnail.active {
+    border-color: var(--primary-color);
+}
+
+@media (max-width: 768px) {
+    .gallery-nav button {
+        padding: 0.5rem;
+    }
+    
+    .gallery-thumbnails {
+        gap: 0.25rem;
+    }
+    
+    .gallery-thumbnail {
+        width: 60px;
+        height: 45px;
+    }
 } 

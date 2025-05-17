@@ -4,6 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
     emailjs.init("YOUR_PUBLIC_KEY"); // You'll need to replace this with your EmailJS public key
 
     const serviceSelect = document.getElementById('service');
+    const recipientSelect = document.getElementById('recipientEmail');
     const fileUploadGroup = document.querySelector('.file-upload-group');
     const fileInput = document.getElementById('projectFiles');
     const selectedFiles = document.getElementById('selectedFiles');
@@ -15,6 +16,22 @@ document.addEventListener('DOMContentLoaded', function() {
             fileUploadGroup.style.display = 'block';
         } else {
             fileUploadGroup.style.display = 'none';
+        }
+
+        // Set recipient email based on service
+        switch(this.value) {
+            case 'tree-cutting':
+            case 'landscaping':
+            case 'seedling-production':
+            case 'other':
+                recipientSelect.value = 'iamfeluna@yahoo.com';
+                break;
+            case 'tree-inventory':
+            case 'permitting':
+                recipientSelect.value = 'ga_luna358@yahoo.com';
+                break;
+            default:
+                recipientSelect.value = 'all';
         }
     });
 
@@ -67,9 +84,9 @@ document.addEventListener('DOMContentLoaded', function() {
             let recipients = [];
             if (recipientValue === 'all') {
                 recipients = [
-                    'info@foresthillsgarden.com',
-                    'support@foresthillsgarden.com',
-                    'sales@foresthillsgarden.com'
+                    'iamfeluna@yahoo.com',
+                    'ga_luna358@yahoo.com',
+                    'support@foresthillsgarden.com'
                 ];
             } else {
                 recipients = [recipientValue];

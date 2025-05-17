@@ -51,10 +51,11 @@ async function includeHTML(elementId, path) {
                             </div>
                             <ul class="nav-links">
                                 <li><a href="index.html">Home</a></li>
-                                <li><a href="services.html">Services</a></li>
                                 <li><a href="about.html">About</a></li>
+                                <li><a href="services.html">Services</a></li>
                                 <li><a href="history.html">History</a></li>
                                 <li><a href="affiliations.html">Affiliations</a></li>
+                                <li><a href="find-us.html">Find Us</a></li>
                                 <li><a href="contact.html">Contact</a></li>
                             </ul>
                             <div class="hamburger">
@@ -63,10 +64,11 @@ async function includeHTML(elementId, path) {
                                 <span></span>
                                 <ul class="hamburger-menu">
                                     <li><a href="index.html">Home</a></li>
-                                    <li><a href="services.html">Services</a></li>
                                     <li><a href="about.html">About</a></li>
+                                    <li><a href="services.html">Services</a></li>
                                     <li><a href="history.html">History</a></li>
                                     <li><a href="affiliations.html">Affiliations</a></li>
+                                    <li><a href="find-us.html">Find Us</a></li>
                                     <li><a href="contact.html">Contact</a></li>
                                 </ul>
                             </div>
