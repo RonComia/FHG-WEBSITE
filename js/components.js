@@ -43,7 +43,7 @@ async function includeHTML(elementId, path) {
                     <header>
                         <nav class="navbar">
                             <div class="logo">
-                                <h1>Forest Hills Garden</h1>
+                                <a href="index.html" style="text-decoration:none;"><h1>Forest Hills Garden</h1></a>
                             </div>
                             <ul class="nav-links">
                                 <li><a href="index.html">Home</a></li>

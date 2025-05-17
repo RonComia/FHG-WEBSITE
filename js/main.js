@@ -1,16 +1,27 @@
 // Wait for DOM content to be loaded
-let hamburger, navLinks;
+let hamburger, mobileMenu;
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile navigation toggle
     hamburger = document.querySelector('.hamburger');
-    navLinks = document.querySelector('.nav-links');
+    mobileMenu = document.querySelector('.mobile-menu');
 
-    if (hamburger && navLinks) {
+    if (hamburger && mobileMenu) {
         hamburger.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
             hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
         });
     }
+
+    // Close mobile menu when clicking a link
+    const mobileLinks = document.querySelectorAll('.mobile-menu a');
+    mobileLinks.forEach(link => {
+        link.addEventListener('click', () => {
+            hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+    });
 
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
@@ -38,14 +49,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Close mobile menu when clicking outside
-// Only run if hamburger and navLinks are defined
-// Use event delegation to avoid errors
-
 document.addEventListener('click', (e) => {
-    if (typeof hamburger !== 'undefined' && typeof navLinks !== 'undefined' && hamburger && navLinks) {
-        if (!hamburger.contains(e.target) && !navLinks.contains(e.target)) {
-            navLinks.classList.remove('active');
+    if (hamburger && mobileMenu) {
+        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
             hamburger.classList.remove('active');
+            mobileMenu.classList.remove('active');
+            document.body.style.overflow = '';
         }
     }
 });
@@ -54,8 +63,8 @@ document.addEventListener('click', (e) => {
 window.addEventListener('scroll', () => {
     const navbar = document.querySelector('.navbar');
     if (window.scrollY > 50) {
-        navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+        navbar.style.backgroundColor = 'var(--primary-color)';
     } else {
-        navbar.style.backgroundColor = '#fff';
+        navbar.style.backgroundColor = 'var(--primary-color)';
     }
 }); 
