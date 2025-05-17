@@ -13,7 +13,11 @@ async function includeHTML(elementId, path) {
             return;
         }
 
-        const response = await fetch(path);
+        // Adjust path for GitHub Pages
+        const basePath = window.location.hostname.includes('github.io') ? '/FHG-WEBSITE' : '';
+        const fullPath = `${basePath}/${path}`;
+
+        const response = await fetch(fullPath);
         if (!response.ok) {
             throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -24,7 +28,7 @@ async function includeHTML(elementId, path) {
         let currentPage = window.location.pathname.split('/').pop() || 'index.html';
         currentPage = currentPage.split('?')[0].split('#')[0];
         if (currentPage === '') currentPage = 'index.html';
-        const navLinks = element.querySelectorAll('.nav-links a, .mobile-menu a');
+        const navLinks = element.querySelectorAll('.nav-links a, .hamburger-menu a');
         navLinks.forEach(link => {
             let linkHref = link.getAttribute('href').split('?')[0].split('#')[0];
             if ((currentPage === 'index.html' && (linkHref === 'index.html' || linkHref === './' || linkHref === '')) || linkHref === currentPage) {
