@@ -5,7 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
     hamburger = document.querySelector('.hamburger');
 
     if (hamburger) {
-        hamburger.addEventListener('click', () => {
+        hamburger.addEventListener('click', (e) => {
+            e.stopPropagation(); // Prevent click from bubbling up
             hamburger.classList.toggle('active');
             document.body.style.overflow = hamburger.classList.contains('active') ? 'hidden' : '';
         });
@@ -47,7 +48,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
-    if (hamburger) {
+    if (hamburger && hamburger.classList.contains('active')) {
         if (!hamburger.contains(e.target)) {
             hamburger.classList.remove('active');
             document.body.style.overflow = '';
