@@ -57,9 +57,7 @@ async function includeHTML(elementId, path) {
                                 <span></span>
                                 <span></span>
                                 <span></span>
-                            </div>
-                            <div class="mobile-menu">
-                                <ul>
+                                <ul class="hamburger-menu">
                                     <li><a href="index.html">Home</a></li>
                                     <li><a href="services.html">Services</a></li>
                                     <li><a href="about.html">About</a></li>

@@ -1,24 +1,21 @@
 // Wait for DOM content to be loaded
-let hamburger, mobileMenu;
+let hamburger;
 document.addEventListener('DOMContentLoaded', () => {
     // Mobile navigation toggle
     hamburger = document.querySelector('.hamburger');
-    mobileMenu = document.querySelector('.mobile-menu');
 
-    if (hamburger && mobileMenu) {
+    if (hamburger) {
         hamburger.addEventListener('click', () => {
             hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-            document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+            document.body.style.overflow = hamburger.classList.contains('active') ? 'hidden' : '';
         });
     }
 
     // Close mobile menu when clicking a link
-    const mobileLinks = document.querySelectorAll('.mobile-menu a');
-    mobileLinks.forEach(link => {
+    const hamburgerLinks = document.querySelectorAll('.hamburger-menu a');
+    hamburgerLinks.forEach(link => {
         link.addEventListener('click', () => {
             hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
             document.body.style.overflow = '';
         });
     });
@@ -50,10 +47,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Close mobile menu when clicking outside
 document.addEventListener('click', (e) => {
-    if (hamburger && mobileMenu) {
-        if (!hamburger.contains(e.target) && !mobileMenu.contains(e.target)) {
+    if (hamburger) {
+        if (!hamburger.contains(e.target)) {
             hamburger.classList.remove('active');
-            mobileMenu.classList.remove('active');
             document.body.style.overflow = '';
         }
     }

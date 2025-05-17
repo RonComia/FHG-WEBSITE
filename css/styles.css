@@ -124,6 +124,7 @@ body {
     gap: 5px;
     cursor: pointer;
     z-index: 100;
+    position: relative;
 }
 
 .hamburger span {
@@ -145,7 +146,7 @@ body {
     transform: rotate(-45deg) translate(7px, -6px);
 }
 
-.mobile-menu {
+.hamburger-menu {
     display: none;
     position: fixed;
     top: 0;
@@ -155,24 +156,20 @@ body {
     background-color: var(--primary-color);
     padding-top: 80px;
     z-index: 99;
-}
-
-.mobile-menu.active {
-    display: block;
-}
-
-.mobile-menu ul {
     list-style: none;
-    padding: 0;
     margin: 0;
     text-align: center;
 }
 
-.mobile-menu ul li {
+.hamburger.active .hamburger-menu {
+    display: block;
+}
+
+.hamburger-menu li {
     margin: 20px 0;
 }
 
-.mobile-menu ul li a {
+.hamburger-menu li a {
     color: #fff;
     text-decoration: none;
     font-size: 1.2rem;
@@ -180,7 +177,7 @@ body {
     transition: var(--transition);
 }
 
-.mobile-menu ul li a:hover {
+.hamburger-menu li a:hover {
     color: var(--accent-color);
 }
 
