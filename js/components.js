@@ -24,7 +24,7 @@ async function includeHTML(elementId, path) {
         let currentPage = window.location.pathname.split('/').pop() || 'index.html';
         currentPage = currentPage.split('?')[0].split('#')[0];
         if (currentPage === '') currentPage = 'index.html';
-        const navLinks = element.querySelectorAll('.nav-links a');
+        const navLinks = element.querySelectorAll('.nav-links a, .mobile-menu a');
         navLinks.forEach(link => {
             let linkHref = link.getAttribute('href').split('?')[0].split('#')[0];
             if ((currentPage === 'index.html' && (linkHref === 'index.html' || linkHref === './' || linkHref === '')) || linkHref === currentPage) {
@@ -57,6 +57,16 @@ async function includeHTML(elementId, path) {
                                 <span></span>
                                 <span></span>
                                 <span></span>
+                            </div>
+                            <div class="mobile-menu">
+                                <ul>
+                                    <li><a href="index.html">Home</a></li>
+                                    <li><a href="services.html">Services</a></li>
+                                    <li><a href="about.html">About</a></li>
+                                    <li><a href="history.html">History</a></li>
+                                    <li><a href="affiliations.html">Affiliations</a></li>
+                                    <li><a href="contact.html">Contact</a></li>
+                                </ul>
                             </div>
                         </nav>
                     </header>`;
