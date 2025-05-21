@@ -1,0 +1,248 @@
+/* Contact Form Styles */
+.contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.contact-info {
+    background: #f8f9fa;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-info h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.info-item {
+    display: flex;
+    align-items: flex-start;
+    margin-bottom: 1.5rem;
+}
+
+.info-item i {
+    font-size: 1.5rem;
+    color: #3498db;
+    margin-right: 1rem;
+    margin-top: 0.25rem;
+}
+
+.info-item h3 {
+    color: #2c3e50;
+    margin-bottom: 0.5rem;
+}
+
+.info-item p {
+    color: #666;
+    line-height: 1.6;
+}
+
+.contact-form {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.contact-form h2 {
+    color: #2c3e50;
+    margin-bottom: 1.5rem;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #2c3e50;
+    font-weight: 500;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 1rem;
+    transition: border-color 0.3s ease;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #3498db;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(52,152,219,0.2);
+}
+
+.file-upload-wrapper {
+    border: 2px dashed #ddd;
+    border-radius: 4px;
+    padding: 2rem;
+    text-align: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    position: relative;
+    background: #f8f9fa;
+}
+
+.file-upload-wrapper:hover {
+    border-color: #3498db;
+    background: #f1f8ff;
+}
+
+.file-upload-wrapper input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.file-upload-info {
+    color: #666;
+    pointer-events: none;
+}
+
+.file-upload-info i {
+    font-size: 2rem;
+    color: #3498db;
+    margin-bottom: 1rem;
+}
+
+.file-types {
+    font-size: 0.875rem;
+    color: #999;
+    margin-top: 0.5rem;
+}
+
+.selected-files {
+    margin-top: 1rem;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    padding: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.file-item i {
+    margin-right: 0.5rem;
+    color: #3498db;
+}
+
+.file-item span {
+    flex: 1;
+}
+
+.file-size {
+    color: #666;
+    font-size: 0.875rem;
+    margin-right: 0.5rem;
+}
+
+.remove-file {
+    background: none;
+    border: none;
+    color: #e74c3c;
+    cursor: pointer;
+    padding: 0.25rem;
+    transition: color 0.3s ease;
+}
+
+.remove-file:hover {
+    color: #c0392b;
+}
+
+.file-error {
+    color: #e74c3c;
+    font-size: 0.875rem;
+}
+
+.file-error-message {
+    background: #fde8e8;
+    color: #c81e1e;
+    padding: 0.75rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.file-error-message i {
+    margin-right: 0.5rem;
+}
+
+.submit-button {
+    background: #3498db;
+    color: white;
+    border: none;
+    padding: 1rem 2rem;
+    border-radius: 4px;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+    width: 100%;
+}
+
+.submit-button:hover {
+    background: #2980b9;
+}
+
+.submit-button:disabled {
+    background: #bdc3c7;
+    cursor: not-allowed;
+}
+
+.success-message,
+.error-message {
+    padding: 1rem;
+    border-radius: 4px;
+    margin-bottom: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.success-message {
+    background: #d4edda;
+    color: #155724;
+}
+
+.error-message {
+    background: #f8d7da;
+    color: #721c24;
+}
+
+.success-message i,
+.error-message i {
+    margin-right: 0.5rem;
+    font-size: 1.25rem;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .contact-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .contact-info,
+    .contact-form {
+        padding: 1.5rem;
+    }
+} 
